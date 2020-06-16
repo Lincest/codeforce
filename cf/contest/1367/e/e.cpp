@@ -1,6 +1,6 @@
 /*
- * Author: $%U%$
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Author: RoccoShi
+ * Time: 2020-06-16 22:35:02
 */
 
 #include<bits/stdc++.h>

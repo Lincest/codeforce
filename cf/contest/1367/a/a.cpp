@@ -1,6 +1,6 @@
 /*
- * Author: $%U%$
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Author: RoccoShi
+ * Time: 2020-06-16 22:35:02
 */
 
 #include<bits/stdc++.h>
@@ -23,6 +23,26 @@ const int maxm = 200000 + 5;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
+    int t;
+    cin >> t;
+    while(t--) {
+    	string s;
+    	string ans = "";
+    	cin >> s;
+    	int cnt = 0;
+    	for(int i = 0;i < s.size(); ++i) {
+    		if(i==0 || i==s.size()-1) ans += s[i];
+    		else
+    		{
+    			cnt++;
+    			if(cnt==2) {
+    				cnt = 0;
+    				ans += s[i];
+    			}
+    		}
+    	}
+    	cout << ans << endl;
+    }
     
     return 0;
 }

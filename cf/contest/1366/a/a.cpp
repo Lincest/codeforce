@@ -21,7 +21,7 @@ int main(){
        	else {
        		if(a > b)
        			swap(a,b);
-    		cout << (b-a) + (2*a-b)*2/3 <<endl;
+    		cout << (b-a) + (2*a-b)*2/3 <<endl; // 石学舟 
     	}
     }
 	return 0;
