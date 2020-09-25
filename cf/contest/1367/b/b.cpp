@@ -8,6 +8,7 @@ using namespace std;
 #define ll long long
 #define pii pair<int,int>
 #define mp make_pair
+#define endl '\n'
 #define pb push_back
 #define fi first
 #define se second
@@ -29,12 +30,18 @@ int main() {
     	cin >> x;
     	int tm;
     	int ans = 0;
+    	int ansx = 0;
+    	int ansy = 0;
     	for (int i = 0; i < x; ++i)
     	{
     		cin >> tm;
+    		if (tm % 2 == 1 && i % 2 == 0)
+    			ansx++;
+    		if (tm % 2 == 0 && i % 2 == 1)
+    			ansy++;
     		if(tm%2 != i%2) ans++;
     	}
-    	if(ans%2 == 1) 
+    	if (ansx != ansy) 
     		cout << -1 << endl;
     	else
     		cout << ans/2 << endl;

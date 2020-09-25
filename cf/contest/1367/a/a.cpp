@@ -19,7 +19,6 @@ const int NINF = 0xc0c0c0c0;
 const int maxn = 10000 + 5;
 const int maxm = 200000 + 5;
 
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
@@ -31,11 +30,11 @@ int main() {
     	cin >> s;
     	int cnt = 0;
     	for(int i = 0;i < s.size(); ++i) {
-    		if(i==0 || i==s.size()-1) ans += s[i];
+    		if(i == 0 || i == s.size()-1) ans += s[i];
     		else
     		{
     			cnt++;
-    			if(cnt==2) {
+    			if(cnt == 2) {
     				cnt = 0;
     				ans += s[i];
     			}
