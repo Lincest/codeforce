@@ -21,7 +21,7 @@ const int maxm = 200000 + 5;
 int arr[maxn];
 
 bool cmp(int a, int b) {
-    return a > b ? true : false;
+    return a > b;
 }
 
 int main() {
