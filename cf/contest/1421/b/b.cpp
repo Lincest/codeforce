@@ -6,7 +6,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
-#define endl '\n'
 #define pii pair<int,int>
 #define mp make_pair
 #define pb push_back
@@ -40,15 +39,17 @@ int main() {
         int n;
         cin >> n;
         g[n][n] = 2;
+        string s;
         for (int i = 1; i <= n; ++i) {
-            for (int j = 1; j <= n; ++j) {
-                if ( !(i == 1 && j == 1) && !(i == n && j == n)) {
-                    cin >> g[i][j];
-                }
+            cin >> s;
+            for (int j = 1; j <= n; ++j)
+            {
+                if (s[j-1] != 'S' && s[j-1] != 'F')
+                    g[i][j] = s[j-1];
             }
         }
-        x[1] = g[n][n-2], x[2] = g[n-1][n-1], x[3] = g[n][n-2];
-        y[1] = g[n-1][n], y[2] = g[n][n-1];
+        x[1] = g[n][n-2], x[2] = g[n-1][n-1], x[3] = g[n-2][n];
+        y[1] = g[n][n-1], y[2] = g[n-1][n];
         int cx = x[1];
         int cy = y[1];
         if (x[1] == x[2] && x[1] == x[3] && x[2] == x[3]) {
@@ -63,35 +64,53 @@ int main() {
             } else {
                 if (cx == cy) {
                     cout << 1 << endl;
-                    cout << n-1 << " " << n << endl;
+                    cout << n << " " << n-1 << endl;
                 } else {
                     cout << 1 << endl;
-                    cout << n << " " << n-1 << endl;
+                    cout << n-1 << " " << n << endl;
                 }
             }
         } else {
-            if (cx == cy) {
+            if (y[1] == y[2]) {
                 if (x[1] == x[2]) {
-                    cout << 1 << endl;
-                    cout << n << " " << n-2 << endl;
+                    if (x[1] == y[1]) {
+                        cout << 2 << endl;
+                        cout << n << " " << n-2 << endl;
+                        cout << n-1 << " " << n-1 << endl;
+                    } else {
+                        cout << 1 << endl;
+                        cout << n-2 << " " << n << endl;
+                    }
                 }
                 else if (x[1] == x[3]) {
-                    cout << 1 << endl;
-                    cout << n-1 << " " << n-1 << endl;
+                    if (x[1] == y[1]) {
+                        cout << 2 << endl;
+                        cout << n << " " << n-2 << endl;
+                        cout << n-2 << " " << n << endl;
+                    } else {
+                        cout << 1 << endl;
+                        cout << n-1 << " " << n-1 << endl;
+                    }
                 } 
                 else {
-                    cout << 1 << endl;
-                    cout << n-2 << " " << n << endl;
+                    if (x[2] == y[1]) {
+                        cout << 2 << endl;
+                        cout << n-1 << " " << n-1 << endl;
+                        cout << n-2 << " " << n << endl;
+                    } else {
+                       cout << 1 << endl;
+                       cout << n << " " << n-2 << endl; 
+                    }
                 }
             } else {
                 if (x[1] == x[2]) {
                     if (cy == x[1]) {
                         cout << 2 << endl;
-                        cout << n << " " << n-2 << endl;
+                        cout << n-2 << " " << n << endl;
                         cout << n << " " << n-1 << endl;
                     } else {
-                    cout << 2 << endl;
-                        cout << n << " " << n-2 << endl;
+                        cout << 2 << endl;
+                        cout << n-2 << " " << n << endl;
                         cout << n-1 << " " << n << endl;
                     }
                 }
@@ -109,11 +128,11 @@ int main() {
                 else if (x[2] == x[3]) {
                     if (cy == x[2]) {
                         cout << 2 << endl;
-                        cout << n-2 << " " << n << endl;
+                        cout << n << " " << n-2 << endl;
                         cout << n << " " << n-1 << endl;
                     } else {
                         cout << 2 << endl;
-                        cout << n-2 << " " << n << endl;
+                        cout << n << " " << n-2 << endl;
                         cout << n-1 << " " << n << endl;
                     }
                 }
@@ -123,3 +142,25 @@ int main() {
     }
     return 0;
 } 
+
+/*
+1
+4
+S010
+0001
+1000
+111F
+
+1
+3
+S11
+011
+00F
+
+1
+4
+S010
+1110
+0010
+100F
+*/
