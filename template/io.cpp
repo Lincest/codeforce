@@ -2,7 +2,8 @@
  * Author: $%U%$
  * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
 */
-
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wsign-compare"
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long

@@ -1,6 +1,6 @@
 /*
  * Author: RoccoShi
- * Time: 2020-10-18 17:05:01
+ * Time: 2020-10-20 23:02:17
 */
 
 #include<bits/stdc++.h>
@@ -19,17 +19,24 @@ const int NINF = 0xc0c0c0c0;
 const int maxn = 10000 + 5;
 const int maxm = 200000 + 5;
 
-int main() { 
+
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
     int t;
     cin >> t;
-    ll x, y;
-    for (int i = 0; i < t; ++i)
-    {
-        cin >> x >> y;
-        int z = (x & y);
-        cout << (x ^ z) + (y ^ z) << endl;
+    while (t--) {
+        int x;
+        cin >> x;
+        int s = x % 10;
+        int ans = 0;
+        while (x >= 1) {
+            x /= 10;
+            ++ans;
+        }
+        ans = (1 + ans) * ans / 2;
+        ans += 10 * (s - 1);
+        cout << ans << endl;
     }
     return 0;
 }
