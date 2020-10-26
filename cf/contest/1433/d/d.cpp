@@ -20,10 +20,10 @@ const int maxn = 5000 + 5;
 const int maxm = 200000 + 5;
 
 int a[maxn];
-vector<pair<int, int> > vc;
+vector<pii> vc;
 
-bool cmp(pair<int, int>x, pair<int, int> y) {
-    return x.second < y.second;
+bool cmp(pii x, pii y) {
+    return x.se < y.se;
 }
 
 int main() {
@@ -48,10 +48,10 @@ int main() {
             sort(vc.begin(), vc.end(), cmp);
             for (int i = 1; i < n; ++i)
             {
-                if (vc[vc.size()-1].second != vc[i-1].second)
-                    cout << vc[vc.size()-1].first << " " << vc[i-1].first << endl;
+                if (vc[vc.size()-1].se != vc[i-1].se)
+                    cout << vc[vc.size()-1].fi << " " << vc[i-1].fi << endl;
                 else 
-                    cout << vc[i-1].first << " " << vc[0].first << endl;
+                    cout << vc[i-1].fi << " " << vc[0].fi << endl;
             }
         }
         vc.clear();
